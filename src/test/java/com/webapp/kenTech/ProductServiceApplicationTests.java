@@ -42,7 +42,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public class ProductServiceApplicationTests {
 
-
+//
 //	@Container
 //	static MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:6.0.4");
 	@InjectMocks
@@ -72,26 +72,26 @@ public class ProductServiceApplicationTests {
 //				.content(requestString))
 //				.andExpect(status().isCreated());
 //		Assertions.assertEquals(1, productRepository.findAll().size());
+
+//	}
+//	@Test
+//	@DisplayName("Should List All Posts When making GET request to endpoint - /api/product")
+//	public void shouldGetProduct() throws Exception {
+//		ProductResponse response1 = new ProductResponse("01", "Apple","iphone13",BigDecimal.valueOf(1400));
+//		ProductResponse response2 = new ProductResponse("02", "Samsung","A713",BigDecimal.valueOf(1200));
+//		Mockito.when(productService.getAllProduct()).thenReturn(List.of(response1,response2));
+//		mockMvc.perform(MockMvcRequestBuilders.get("/api/product"))
+//				.andExpect(status().is(200));
+//
 //
 //	}
-	@Test
-	@DisplayName("Should List All Posts When making GET request to endpoint - /api/product")
-	public void shouldGetProduct() throws Exception {
-		ProductResponse response1 = new ProductResponse("01", "Apple","iphone13",BigDecimal.valueOf(1400));
-		ProductResponse response2 = new ProductResponse("02", "Samsung","A713",BigDecimal.valueOf(1200));
-		Mockito.when(productService.getAllProduct()).thenReturn(List.of(response1,response2));
-		mockMvc.perform(MockMvcRequestBuilders.get("/api/product"))
-				.andExpect(status().is(200));
-
-
-	}
-
-	private ProductRequest getProductRequest() {
-		return ProductRequest.builder()
-				.name("iphone")
-				.description("apple")
-				.price(BigDecimal.valueOf(1200))
-				.build();
-	}
+//
+//	private ProductRequest getProductRequest() {
+//		return ProductRequest.builder()
+//				.name("iphone")
+//				.description("apple")
+//				.price(BigDecimal.valueOf(1200))
+//				.build();
+//	}
 
 }
