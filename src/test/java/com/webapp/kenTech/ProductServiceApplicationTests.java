@@ -38,13 +38,13 @@ import java.util.List;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
-//@Testcontainers
+@Testcontainers
 @AutoConfigureMockMvc
 public class ProductServiceApplicationTests {
 
-//
-//	@Container
-//	static MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:6.0.4");
+
+	@Container
+	static MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:6.0.4");
 	@InjectMocks
 	private ObjectMapper objectMapper;
 
@@ -57,10 +57,10 @@ public class ProductServiceApplicationTests {
 	private MockMvc mockMvc;
 
 
-//	@DynamicPropertySource
-//	static void setProperties(DynamicPropertyRegistry dynamicPropertyRegistry){
-//		dynamicPropertyRegistry.add("spring.data.mongodb.uri", mongoDBContainer::getReplicaSetUrl);
-//	}
+	@DynamicPropertySource
+	static void setProperties(DynamicPropertyRegistry dynamicPropertyRegistry){
+		dynamicPropertyRegistry.add("spring.data.mongodb.uri", mongoDBContainer::getReplicaSetUrl);
+	}
 
 
 	@Test
@@ -71,7 +71,7 @@ public class ProductServiceApplicationTests {
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(requestString))
 				.andExpect(status().isCreated());
-//		Assertions.assertEquals(1, productRepository.findAll().size());
+		Assertions.assertEquals(1, productRepository.findAll().size());
 
 	}
 	@Test
